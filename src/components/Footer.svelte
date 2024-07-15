@@ -2,7 +2,7 @@
 	import Github from '$lib/icons/Github.svelte';
 </script>
 
-<footer class="footer bg-neutral text-neutral-content items-center p-4">
+<footer class="footer items-center bg-neutral p-4 text-neutral-content">
 	<aside class="grid-flow-col items-center">
 		<p>
 			Copyright {new Date().getFullYear()}.
