@@ -23,6 +23,7 @@
     "@types/node": "^20.14.11",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "daisyui": "^4.12.10",
     "husky": "^9.1.1",
     "lint-staged": "^15.2.7",
     "postcss": "^8.4.39",
