@@ -3,30 +3,30 @@ import Link from 'next/link'
 export function Footer() {
   return (
     <footer className="bg-neutral text-neutral-content">
-      <div className="max-w-screen-lg footer max-md:footer-center items-center mx-auto p-4">
+      <div className="footer max-md:footer-center mx-auto max-w-screen-lg items-center p-4">
         <aside className="grid-flow-col items-center">
           <p>
             Built by{' '}
             <Link
               href="https://github.com/wontory"
-              className="font-medium underline underline-offset-4 hover:text-white transition-colors duration-200"
+              className="font-medium underline underline-offset-4 transition-colors duration-200 hover:text-white"
             >
               wontory
             </Link>
             . The source code is available on{' '}
             <Link
               href="https://github.com/wontory/auto-table"
-              className="font-medium underline underline-offset-4 hover:text-white transition-colors duration-200"
+              className="font-medium underline underline-offset-4 transition-colors duration-200 hover:text-white"
             >
               GitHub
             </Link>
             .
           </p>
         </aside>
-        <nav className="max-md:hidden grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+        <nav className="grid-flow-col gap-4 max-md:hidden md:place-self-center md:justify-self-end">
           <Link
             href="https://github.com/wontory/auto-table"
-            className="hover:text-white transition-colors duration-200"
+            className="transition-colors duration-200 hover:text-white"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
               <title>GitHub</title>
