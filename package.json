@@ -6,9 +6,9 @@
     "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "check": "biome check --write ./",
+    "check": "biome check --write --unsafe ./",
     "format": "biome format --write ./",
-    "lint": "biome lint --write ./",
+    "lint": "biome lint --write --unsafe ./",
     "prepare": "husky"
   },
   "dependencies": {
