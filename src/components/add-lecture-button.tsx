@@ -1,8 +1,8 @@
-import { useLectureModalContext } from '~/contexts/lecture-modal-context'
+import { useLectureModal } from '~/contexts/lecture-modal'
 import type { Subject } from '~/schemas/subject'
 
 export function AddLectureButton({ subject }: { subject: Subject }) {
-  const { openLectureModal } = useLectureModalContext()
+  const { openLectureModal } = useLectureModal()
 
   return (
     <button type="button" className="btn btn-secondary w-full" onClick={() => openLectureModal(subject)}>

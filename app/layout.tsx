@@ -4,8 +4,8 @@ import '~/styles/globals.css'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { JotaiProvider } from '~/components/jotai-provider'
-import { LectureModalProvider } from '~/contexts/lecture-modal-context'
-import { SubjectModalProvider } from '~/contexts/subject-modal-context'
+import { LectureModalProvider } from '~/contexts/lecture-modal'
+import { SubjectModalProvider } from '~/contexts/subject-modal'
 
 export const metadata: Metadata = {
   title: 'Auto Table',

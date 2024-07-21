@@ -6,12 +6,12 @@ import { EditIcon, Trash2Icon } from 'lucide-react'
 import { subjectListAtom } from '~/atoms/subject-list'
 import { AddLectureButton } from '~/components/add-lecture-button'
 import { LectureList } from '~/components/lecture-list'
-import { useSubjectModalContext } from '~/contexts/subject-modal-context'
+import { useSubjectModal } from '~/contexts/subject-modal'
 import type { Subject } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
 export function SubjectList({ className }: { className?: string }) {
-  const { openSubjectModal } = useSubjectModalContext()
+  const { openSubjectModal } = useSubjectModal()
   const [subjectList, setSubjectList] = useAtom(subjectListAtom)
 
   const handleEdit = (subject: Subject) => {

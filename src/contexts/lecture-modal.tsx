@@ -103,4 +103,4 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
   )
 }
 
-export const useLectureModalContext = () => useContext(LectureModalContext)
+export const useLectureModal = () => useContext(LectureModalContext)

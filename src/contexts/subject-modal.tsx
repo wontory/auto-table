@@ -92,4 +92,4 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
   )
 }
 
-export const useSubjectModalContext = () => useContext(SubjectModalContext)
+export const useSubjectModal = () => useContext(SubjectModalContext)

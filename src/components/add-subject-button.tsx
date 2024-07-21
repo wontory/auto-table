@@ -1,9 +1,9 @@
 'use client'
 
-import { useSubjectModalContext } from '~/contexts/subject-modal-context'
+import { useSubjectModal } from '~/contexts/subject-modal'
 
 export function AddSubjectButton() {
-  const { openSubjectModal } = useSubjectModalContext()
+  const { openSubjectModal } = useSubjectModal()
 
   return (
     <button type="button" className="btn btn-primary w-full" onClick={() => openSubjectModal()}>

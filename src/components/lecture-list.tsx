@@ -2,13 +2,13 @@ import { useSetAtom } from 'jotai'
 import { EditIcon, Trash2Icon } from 'lucide-react'
 
 import { subjectListAtom } from '~/atoms/subject-list'
-import { useLectureModalContext } from '~/contexts/lecture-modal-context'
+import { useLectureModal } from '~/contexts/lecture-modal'
 import type { Lecture } from '~/schemas/lecture'
 import type { Subject } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
 export function LectureList({ className, subject }: { className?: string; subject: Subject }) {
-  const { openLectureModal } = useLectureModalContext()
+  const { openLectureModal } = useLectureModal()
   const setSubjectList = useSetAtom(subjectListAtom)
 
   const handleEdit = (lecture: Lecture) => {
