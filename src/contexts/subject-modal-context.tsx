@@ -10,9 +10,7 @@ import { subjectListAtom } from '~/atoms/subject-list'
 import { type Subject, subjectSchema } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
-export const useSubjectModalContext = () => {
-  return useContext(SubjectModalContext)
-}
+export const useSubjectModalContext = () => useContext(SubjectModalContext)
 
 export const SubjectModalContext = createContext({ openSubjectModal(subject?: Subject) {} })
 
