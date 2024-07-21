@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-neutral text-neutral-content">
       <div className="footer max-md:footer-center mx-auto max-w-screen-lg items-center p-4">
-        <aside className="grid-flow-col items-center">
+        <aside className="grid-flow-row items-center md:grid-flow-col">
           <p>
             Built by{' '}
             <Link
@@ -13,7 +13,10 @@ export function Footer() {
             >
               wontory
             </Link>
-            . The source code is available on{' '}
+            .
+          </p>
+          <p>
+            The source code is available on{' '}
             <Link
               href="https://github.com/wontory/auto-table"
               className="font-medium underline underline-offset-4 transition-colors duration-200 hover:text-white"
