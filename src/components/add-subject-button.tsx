@@ -1,6 +1,6 @@
 'use client'
 
-import { useSubjectModalContext } from '~/contexts/lecture-modal-context'
+import { useSubjectModalContext } from '~/contexts/subject-modal-context'
 
 export function AddSubjectButton() {
   const { openSubjectModal } = useSubjectModalContext()
