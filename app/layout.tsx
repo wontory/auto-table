@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="relative flex min-h-screen flex-col">
+      <body className="relative flex min-h-dvh flex-col">
         <JotaiProvider>
           <SubjectModalProvider>
             <LectureModalProvider>
