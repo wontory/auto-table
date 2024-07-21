@@ -4,6 +4,7 @@ import '~/styles/globals.css'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { JotaiProvider } from '~/components/jotai-provider'
+import { SubjectModalProvider } from '~/contexts/lecture-modal-context'
 
 export const metadata: Metadata = {
   title: 'Auto Table',
@@ -19,9 +20,11 @@ export default function RootLayout({
     <html lang="ko">
       <body className="relative flex min-h-screen flex-col">
         <JotaiProvider>
-          <Header />
-          <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
-          <Footer />
+          <SubjectModalProvider>
+            <Header />
+            <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
+            <Footer />
+          </SubjectModalProvider>
         </JotaiProvider>
       </body>
     </html>
