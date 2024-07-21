@@ -3,6 +3,7 @@ import '~/styles/globals.css'
 
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
+import { JotaiProvider } from '~/components/jotai-provider'
 
 export const metadata: Metadata = {
   title: 'Auto Table',
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className="relative flex min-h-screen flex-col">
-        <Header />
-        <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
-        <Footer />
+        <JotaiProvider>
+          <Header />
+          <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
+          <Footer />
+        </JotaiProvider>
       </body>
     </html>
   )
