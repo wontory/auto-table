@@ -19,7 +19,7 @@ export function SubjectList({ className }: { className?: string }) {
   }
 
   const handleDelete = (subject: Subject) => {
-    setSubjectList((prev) => prev.filter((s) => s.title !== subject.title))
+    setSubjectList((prev) => prev.filter((s) => s.index !== subject.index))
   }
 
   return (
