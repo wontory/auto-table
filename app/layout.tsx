@@ -4,6 +4,7 @@ import '~/styles/globals.css'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { JotaiProvider } from '~/components/jotai-provider'
+import { LectureModalProvider } from '~/contexts/lecture-modal-context'
 import { SubjectModalProvider } from '~/contexts/subject-modal-context'
 
 export const metadata: Metadata = {
@@ -21,9 +22,11 @@ export default function RootLayout({
       <body className="relative flex min-h-screen flex-col">
         <JotaiProvider>
           <SubjectModalProvider>
-            <Header />
-            <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
-            <Footer />
+            <LectureModalProvider>
+              <Header />
+              <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
+              <Footer />
+            </LectureModalProvider>
           </SubjectModalProvider>
         </JotaiProvider>
       </body>
