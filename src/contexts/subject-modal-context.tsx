@@ -10,8 +10,6 @@ import { subjectListAtom } from '~/atoms/subject-list'
 import { type Subject, subjectSchema } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
-export const useSubjectModalContext = () => useContext(SubjectModalContext)
-
 export const SubjectModalContext = createContext({ openSubjectModal(subject?: Subject) {} })
 
 export function SubjectModalProvider({ children }: { children: React.ReactNode }) {
@@ -93,3 +91,5 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
     </SubjectModalContext.Provider>
   )
 }
+
+export const useSubjectModalContext = () => useContext(SubjectModalContext)
