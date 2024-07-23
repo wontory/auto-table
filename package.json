@@ -16,10 +16,10 @@
     "@hookform/resolvers": "^3.9.0",
     "clsx": "^2.1.1",
     "jotai": "^2.9.0",
-    "lucide-react": "^0.412.0",
-    "next": "15.0.0-rc.0",
-    "react": "19.0.0-rc-f994737d14-20240522",
-    "react-dom": "19.0.0-rc-f994737d14-20240522",
+    "lucide-react": "^0.414.0",
+    "next": "^15.0.0-rc.0",
+    "react": "^19.0.0-rc-d025ddd3-20240722",
+    "react-dom": "^19.0.0-rc-d025ddd3-20240722",
     "react-hook-form": "^7.52.1",
     "tailwind-merge": "^2.4.0",
     "zod": "^3.23.8"
@@ -36,7 +36,7 @@
     "lint-staged": "^15.2.7",
     "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.4"
   },
   "trustedDependencies": ["@biomejs/biome"]
 }
