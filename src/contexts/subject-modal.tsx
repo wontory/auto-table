@@ -35,7 +35,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
       reset({
         index: wishList.length > 0 ? wishList[wishList.length - 1].index + 1 : 0,
         title: '',
-        credit: 1,
+        credit: 2,
         lectures: [],
       })
       setMode('추가')
@@ -72,15 +72,21 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
               />
               {errors.title && <span className="label label-text-alt">{errors.title.message}</span>}
             </label>
-            <label className={cn('form-control w-full', errors.credit && '*:input-error *:text-error')}>
+            <label className="form-control w-full">
               <span className="label label-text">학점</span>
               <input
-                type="number"
-                placeholder="3"
-                className="input input-bordered w-full"
+                type="range"
+                min={1}
+                max={3}
+                step={1}
+                className="range range-primary"
                 {...register('credit', { valueAsNumber: true })}
               />
-              {errors.credit && <span className="label label-text-alt">{errors.credit.message}</span>}
+              <span className="mt-2 flex w-full justify-between px-2 text-xs">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              </span>
             </label>
           </p>
           <div className="modal-action">
