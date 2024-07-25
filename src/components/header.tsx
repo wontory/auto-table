@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { ToggleTheme } from '~/components/toggle-theme'
+
 export function Header() {
   return (
     <div className="bg-base-100">
@@ -10,7 +12,9 @@ export function Header() {
             Auto Table
           </Link>
         </div>
-        <div className="navbar-end" />
+        <div className="navbar-end">
+          <ToggleTheme />
+        </div>
       </div>
     </div>
   )
