@@ -28,9 +28,11 @@ export function LectureList({ className, subject }: { className?: string; subjec
       <div className={cn('flex flex-col gap-2', className)}>
         {subject.lectures.map((lecture) => (
           <div key={`lecture-${subject.index}-${lecture.index}`} className="alert flex justify-between bg-base-100">
-            <span>
-              {lecture.professor} / {lecture.day} {lecture.time}
-            </span>
+            <div className="flex items-center gap-2">
+              <div className="badge badge-neutral badge-lg text-neutral-content">{lecture.professor}</div>
+              <div className="badge badge-accent badge-lg aspect-square text-accent-content">{lecture.day}</div>
+              <div className="badge badge-info badge-lg text-info-content">{lecture.time}</div>
+            </div>
             <div className="z-50 flex gap-2">
               <button
                 type="button"

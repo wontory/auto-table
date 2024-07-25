@@ -28,9 +28,11 @@ export function SubjectList({ className }: { className?: string }) {
         {subjectList.map((subject) => (
           <div key={subject.index} className="collapse-arrow collapse bg-base-200">
             <input type="checkbox" />
-            <div className="collapse-title flex items-center gap-4 font-medium text-xl">
-              <div className="badge badge-primary badge-lg">{subject.credit}</div>
-              <span>{subject.title}</span>
+            <div className="collapse-title flex items-center justify-between gap-4 font-medium text-xl">
+              <div className="flex items-center gap-4">
+                <div className="badge badge-primary badge-lg aspect-square">{subject.credit}</div>
+                <span className="line-clamp-1">{subject.title}</span>
+              </div>
               <div className="z-50 flex gap-2">
                 <button
                   type="button"
