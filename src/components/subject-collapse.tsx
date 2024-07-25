@@ -1,6 +1,6 @@
 import { useSetAtom } from 'jotai'
 
-import { deleteSubjectAtom } from '~/atoms/subject-list'
+import { deleteSubjectAtom } from '~/atoms/wish-list'
 import { ButtonControl } from '~/components/button-control'
 import { LectureList } from '~/components/lecture-list'
 import { useSubjectModal } from '~/contexts/subject-modal'
