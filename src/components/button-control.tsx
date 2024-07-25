@@ -5,7 +5,7 @@ export function ButtonControl({
   onClickDelete,
 }: { onClickUpdate: () => void; onClickDelete: () => void }) {
   return (
-    <div className="z-50 flex gap-2">
+    <div className="z-10 flex gap-2">
       <button
         type="button"
         className="btn btn-square btn-outline btn-sm btn-success bg-base-100"
