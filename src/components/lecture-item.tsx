@@ -1,7 +1,7 @@
 import { useSetAtom } from 'jotai'
-import { EditIcon, Trash2Icon } from 'lucide-react'
 
 import { subjectListAtom } from '~/atoms/subject-list'
+import { ButtonControl } from '~/components/button-control'
 import { useLectureModal } from '~/contexts/lecture-modal'
 import type { Lecture } from '~/schemas/lecture'
 import type { Subject } from '~/schemas/subject'
@@ -29,22 +29,7 @@ export function LectureItem({ subject, lecture }: { subject: Subject; lecture: L
         <div className="badge badge-accent badge-lg aspect-square text-accent-content">{lecture.day}</div>
         <div className="badge badge-info badge-lg text-info-content">{lecture.time}</div>
       </div>
-      <div className="z-50 flex gap-2">
-        <button
-          type="button"
-          className="btn btn-square btn-outline btn-sm btn-success bg-base-100"
-          onClick={handleUpdate}
-        >
-          <EditIcon className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          className="btn btn-square btn-outline btn-sm btn-error bg-base-100"
-          onClick={handleDelete}
-        >
-          <Trash2Icon className="h-4 w-4" />
-        </button>
-      </div>
+      <ButtonControl onClickUpdate={handleUpdate} onClickDelete={handleDelete} />
     </div>
   )
 }
