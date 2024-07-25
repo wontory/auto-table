@@ -61,7 +61,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
       <dialog className="modal" ref={modalRef}>
         <form className="modal-box" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">과목 {mode}</h3>
-          <p className="py-4">
+          <div className="py-4">
             <label className={cn('form-control mb-4 w-full', errors.title && '*:input-error *:text-error')}>
               <span className="label label-text">과목명</span>
               <input
@@ -82,13 +82,13 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
                 className="range range-primary"
                 {...register('credit', { valueAsNumber: true })}
               />
-              <span className="mt-2 flex w-full justify-between px-2 text-xs">
+              <div className="mt-2 flex w-full justify-between px-2 text-xs">
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
-              </span>
+              </div>
             </label>
-          </p>
+          </div>
           <div className="modal-action">
             <button type="button" className="btn" onClick={() => modalRef.current?.close()}>
               취소
