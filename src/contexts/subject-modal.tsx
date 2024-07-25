@@ -1,12 +1,12 @@
 'use client'
 
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { createContext, useContext, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 
-import { subjectListAtom } from '~/atoms/subject-list'
+import { createSubjectAtom, subjectListAtom, updateSubjectAtom } from '~/atoms/subject-list'
 import { type Subject, subjectSchema } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
@@ -15,7 +15,9 @@ export const SubjectModalContext = createContext({ openSubjectModal(subject?: Su
 export function SubjectModalProvider({ children }: { children: React.ReactNode }) {
   const modalRef = useRef<HTMLDialogElement>(null)
   const [mode, setMode] = useState<'추가' | '수정'>('추가')
-  const [subjectList, setSubjectList] = useAtom(subjectListAtom)
+  const subjectList = useAtomValue(subjectListAtom)
+  const createSubject = useSetAtom(createSubjectAtom)
+  const updateSubject = useSetAtom(updateSubjectAtom)
   const {
     register,
     reset,
@@ -42,10 +44,13 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
   }
 
   const onSubmit = (data: z.infer<typeof subjectSchema>) => {
-    if (mode === '추가') {
-      setSubjectList((prev) => [...prev, data])
-    } else {
-      setSubjectList((prev) => prev.map((s) => (s.index === data.index ? data : s)))
+    switch (mode) {
+      case '추가':
+        createSubject(data)
+        break
+      case '수정':
+        updateSubject(data)
+        break
     }
     modalRef.current?.close()
   }

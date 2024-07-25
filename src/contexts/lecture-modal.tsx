@@ -6,7 +6,7 @@ import { createContext, useContext, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 
-import { subjectListAtom } from '~/atoms/subject-list'
+import { createLectureAtom, updateLectureAtom } from '~/atoms/subject-list'
 import { type Lecture, lectureSchema } from '~/schemas/lecture'
 import type { Subject } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
@@ -17,7 +17,8 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
   const modalRef = useRef<HTMLDialogElement>(null)
   const [subject, setSubject] = useState<Subject>()
   const [mode, setMode] = useState<'추가' | '수정'>('추가')
-  const setSubjectList = useSetAtom(subjectListAtom)
+  const createLecture = useSetAtom(createLectureAtom)
+  const updateLecture = useSetAtom(updateLectureAtom)
   const {
     register,
     reset,
@@ -45,19 +46,19 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
   }
 
   const onSubmit = (data: z.infer<typeof lectureSchema>) => {
-    if (mode === '추가') {
-      setSubjectList((prev) =>
-        prev.map((s) => (s.index === subject?.index ? { ...s, lectures: [...s.lectures, data] } : s)),
-      )
+    if (subject) {
+      switch (mode) {
+        case '추가':
+          createLecture(subject, data)
+          break
+        case '수정':
+          updateLecture(subject, data)
+          break
+      }
     } else {
-      setSubjectList((prev) =>
-        prev.map((s) =>
-          s.index === subject?.index
-            ? { ...s, lectures: s.lectures.map((l) => (l.index === data.index ? data : l)) }
-            : s,
-        ),
-      )
+      console.error('Subject is undefined')
     }
+
     modalRef.current?.close()
   }
 

@@ -5,10 +5,6 @@ import type { Subject } from '~/schemas/subject'
 export function LectureList({ subject }: { subject: Subject }) {
   const { openLectureModal } = useLectureModal()
 
-  const handleCreate = () => {
-    openLectureModal(subject)
-  }
-
   return (
     <>
       {subject.lectures.length > 0 && (
@@ -18,7 +14,7 @@ export function LectureList({ subject }: { subject: Subject }) {
           ))}
         </div>
       )}
-      <button type="button" className="btn btn-secondary w-full" onClick={handleCreate}>
+      <button type="button" className="btn btn-secondary w-full" onClick={() => openLectureModal(subject)}>
         강의 추가
       </button>
     </>

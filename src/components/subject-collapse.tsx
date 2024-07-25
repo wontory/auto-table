@@ -1,6 +1,6 @@
 import { useSetAtom } from 'jotai'
 
-import { subjectListAtom } from '~/atoms/subject-list'
+import { deleteSubjectAtom } from '~/atoms/subject-list'
 import { ButtonControl } from '~/components/button-control'
 import { LectureList } from '~/components/lecture-list'
 import { useSubjectModal } from '~/contexts/subject-modal'
@@ -8,15 +8,7 @@ import type { Subject } from '~/schemas/subject'
 
 export function SubjectCollapse({ subject }: { subject: Subject }) {
   const { openSubjectModal } = useSubjectModal()
-  const setSubjectList = useSetAtom(subjectListAtom)
-
-  const handleUpdate = () => {
-    openSubjectModal(subject)
-  }
-
-  const handleDelete = () => {
-    setSubjectList((prev) => prev.filter((s) => s.index !== subject.index))
-  }
+  const deleteSubject = useSetAtom(deleteSubjectAtom)
 
   return (
     <details className="collapse-arrow collapse bg-base-200">
@@ -26,7 +18,7 @@ export function SubjectCollapse({ subject }: { subject: Subject }) {
             <div className="badge badge-primary badge-lg aspect-square">{subject.credit}</div>
             <span className="line-clamp-1">{subject.title}</span>
           </div>
-          <ButtonControl onClickUpdate={handleUpdate} onClickDelete={handleDelete} />
+          <ButtonControl onClickUpdate={() => openSubjectModal(subject)} onClickDelete={() => deleteSubject(subject)} />
         </div>
       </summary>
       <div className="collapse-content">

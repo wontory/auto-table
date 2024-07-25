@@ -10,10 +10,6 @@ export function SubjectList() {
   const { openSubjectModal } = useSubjectModal()
   const subjectList = useAtomValue(subjectListAtom)
 
-  const handleCreate = () => {
-    openSubjectModal()
-  }
-
   return (
     <>
       {subjectList.length > 0 && (
@@ -23,7 +19,7 @@ export function SubjectList() {
           ))}
         </div>
       )}
-      <button type="button" className="btn btn-primary w-full" onClick={handleCreate}>
+      <button type="button" className="btn btn-primary w-full" onClick={() => openSubjectModal()}>
         과목 추가
       </button>
     </>
