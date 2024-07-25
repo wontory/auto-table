@@ -7,6 +7,13 @@ const config: Config = {
     './src/contexts/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  theme: {
+    extend: {
+      fontFamily: {
+        pretendard: ['var(--font-pretendard)'],
+      },
+    },
+  },
   plugins: [daisyui],
 }
 export default config

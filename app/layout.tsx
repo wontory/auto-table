@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import localFont from 'next/font/local'
 import '~/styles/globals.css'
 
 import { Footer } from '~/components/footer'
@@ -6,6 +7,14 @@ import { Header } from '~/components/header'
 import { JotaiProvider } from '~/components/jotai-provider'
 import { LectureModalProvider } from '~/contexts/lecture-modal'
 import { SubjectModalProvider } from '~/contexts/subject-modal'
+import { cn } from '~/utils/cn'
+
+const pretendard = localFont({
+  src: '../public/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  weight: '45 920',
+  variable: '--font-pretendard',
+})
 
 export const metadata: Metadata = {
   title: 'Auto Table',
@@ -18,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={cn(pretendard.variable, 'font-pretendard')}>
       <body className="relative flex min-h-dvh flex-col">
         <JotaiProvider>
           <SubjectModalProvider>
