@@ -1,57 +1,26 @@
-import { useSetAtom } from 'jotai'
-import { EditIcon, Trash2Icon } from 'lucide-react'
-
-import { subjectListAtom } from '~/atoms/subject-list'
+import { LectureItem } from '~/components/lecture-item'
 import { useLectureModal } from '~/contexts/lecture-modal'
-import type { Lecture } from '~/schemas/lecture'
 import type { Subject } from '~/schemas/subject'
-import { cn } from '~/utils/cn'
 
-export function LectureList({ className, subject }: { className?: string; subject: Subject }) {
+export function LectureList({ subject }: { subject: Subject }) {
   const { openLectureModal } = useLectureModal()
-  const setSubjectList = useSetAtom(subjectListAtom)
 
-  const handleEdit = (lecture: Lecture) => {
-    openLectureModal(subject, lecture)
-  }
-
-  const handleDelete = (lecture: Lecture) => {
-    setSubjectList((prev) =>
-      prev.map((s) =>
-        s.index === subject.index ? { ...s, lectures: s.lectures.filter((l) => l.index !== lecture.index) } : s,
-      ),
-    )
+  const handleCreate = () => {
+    openLectureModal(subject)
   }
 
   return (
-    subject.lectures.length > 0 && (
-      <div className={cn('flex flex-col gap-2', className)}>
-        {subject.lectures.map((lecture) => (
-          <div key={`lecture-${subject.index}-${lecture.index}`} className="alert flex justify-between bg-base-100">
-            <div className="flex items-center gap-2">
-              <div className="badge badge-neutral badge-lg line-clamp-1 text-neutral-content">{lecture.professor}</div>
-              <div className="badge badge-accent badge-lg aspect-square text-accent-content">{lecture.day}</div>
-              <div className="badge badge-info badge-lg text-info-content">{lecture.time}</div>
-            </div>
-            <div className="z-50 flex gap-2">
-              <button
-                type="button"
-                className="btn btn-square btn-outline btn-sm btn-success bg-base-100"
-                onClick={() => handleEdit(lecture)}
-              >
-                <EditIcon className="h-4 w-4" />
-              </button>
-              <button
-                type="button"
-                className="btn btn-square btn-outline btn-sm btn-error bg-base-100"
-                onClick={() => handleDelete(lecture)}
-              >
-                <Trash2Icon className="h-4 w-4" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-    )
+    <>
+      {subject.lectures.length > 0 && (
+        <div className="mb-4 flex flex-col gap-2">
+          {subject.lectures.map((lecture) => (
+            <LectureItem key={`lecture-${subject.index}-${lecture.index}`} subject={subject} lecture={lecture} />
+          ))}
+        </div>
+      )}
+      <button type="button" className="btn btn-secondary w-full" onClick={handleCreate}>
+        강의 추가
+      </button>
+    </>
   )
 }
