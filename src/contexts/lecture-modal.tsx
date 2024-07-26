@@ -68,28 +68,47 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
       <dialog className="modal" ref={modalRef}>
         <form className="modal-box" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">강의 {mode}</h3>
-          <p className="py-4">
-            <label className={cn('form-control mb-4 w-full', errors.professor && '*:input-error *:text-error')}>
-              <span className="label label-text">담당교수</span>
+          <div className="py-4">
+            <div className={cn('form-control mb-4 w-full', errors.professor && '*:input-error *:text-error')}>
+              <label htmlFor="professor" className="label label-text">
+                담당교수
+              </label>
               <input
+                id="professor"
                 type="text"
                 placeholder="이은정"
                 className="input input-bordered w-full"
                 {...register('professor')}
               />
               {errors.professor && <span className="label label-text-alt">{errors.professor.message}</span>}
-            </label>
-            <label className={cn('form-control w-full', errors.day && '*:input-error *:text-error')}>
-              <span className="label label-text">요일</span>
-              <input type="string" placeholder="월" className="input input-bordered w-full" {...register('day')} />
+            </div>
+            <div className={cn('form-control mb-4 w-full', errors.day && '*:input-error *:text-error')}>
+              <label htmlFor="day" className="label label-text">
+                요일
+              </label>
+              <div id="day" className="join">
+                <input className="join-item btn w-1/5" type="radio" value="월" aria-label="월" {...register('day')} />
+                <input className="join-item btn w-1/5" type="radio" value="화" aria-label="화" {...register('day')} />
+                <input className="join-item btn w-1/5" type="radio" value="수" aria-label="수" {...register('day')} />
+                <input className="join-item btn w-1/5" type="radio" value="목" aria-label="목" {...register('day')} />
+                <input className="join-item btn w-1/5" type="radio" value="금" aria-label="금" {...register('day')} />
+              </div>
               {errors.day && <span className="label label-text-alt">{errors.day.message}</span>}
-            </label>
-            <label className={cn('form-control w-full', errors.time && '*:input-error *:text-error')}>
-              <span className="label label-text">교시</span>
-              <input type="string" placeholder="123" className="input input-bordered w-full" {...register('time')} />
+            </div>
+            <div className={cn('form-control w-full', errors.time && '*:input-error *:text-error')}>
+              <label htmlFor="time" className="label label-text">
+                교시
+              </label>
+              <input
+                id="time"
+                type="string"
+                placeholder="123"
+                className="input input-bordered w-full"
+                {...register('time')}
+              />
               {errors.time && <span className="label label-text-alt">{errors.time.message}</span>}
-            </label>
-          </p>
+            </div>
+          </div>
           <div className="modal-action">
             <button type="button" className="btn" onClick={() => modalRef.current?.close()}>
               취소
