@@ -61,20 +61,26 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
       <dialog className="modal" ref={modalRef}>
         <form className="modal-box" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">과목 {mode}</h3>
-          <div className="py-4">
-            <label className={cn('form-control mb-4 w-full', errors.title && '*:input-error *:text-error')}>
-              <span className="label label-text">과목명</span>
+          <div className="flex flex-col gap-4 py-4">
+            <div className={cn('form-control w-full', errors.title && '*:input-error *:text-error')}>
+              <label htmlFor="title" className="label label-text">
+                과목명
+              </label>
               <input
+                id="title"
                 type="text"
                 placeholder="차세대프로그래밍언어"
                 className="input input-bordered w-full"
                 {...register('title')}
               />
               {errors.title && <span className="label label-text-alt">{errors.title.message}</span>}
-            </label>
-            <label className="form-control w-full">
-              <span className="label label-text">학점</span>
+            </div>
+            <div className="form-control w-full">
+              <label htmlFor="credit" className="label label-text">
+                학점
+              </label>
               <input
+                id="credit"
                 type="range"
                 min={1}
                 max={3}
@@ -87,7 +93,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
                 <span>2</span>
                 <span>3</span>
               </div>
-            </label>
+            </div>
           </div>
           <div className="modal-action">
             <button type="button" className="btn" onClick={() => modalRef.current?.close()}>
