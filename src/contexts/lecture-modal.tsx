@@ -101,8 +101,9 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
               </label>
               <input
                 id="time"
-                type="string"
-                placeholder="123"
+                type="text"
+                placeholder={'123'.slice(0, subject?.credit ?? 0)}
+                maxLength={subject?.credit ?? 0}
                 className="input input-bordered w-full"
                 {...register('time')}
               />
