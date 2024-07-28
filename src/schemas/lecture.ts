@@ -6,7 +6,10 @@ export const lectureSchema = z.object({
   day: z.enum(['월', '화', '수', '목', '금'], {
     message: '요일은 월, 화, 수, 목, 금 중 하나여야 합니다.',
   }),
-  time: z.string().min(1, { message: '교시를 입력해주세요.' }),
+  time: z
+    .string()
+    .min(1, { message: '교시를 입력해주세요.' })
+    .regex(/^\d+$/, { message: '교시는 숫자로 입력해주세요.' }),
 })
 
 export type Lecture = z.infer<typeof lectureSchema>
