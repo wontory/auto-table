@@ -2,19 +2,19 @@
 
 import { useAtomValue } from 'jotai'
 
-import { wishListAtom } from '~/atoms/wish-list'
+import { subjectsAtom } from '~/atoms/subjects'
 import { SubjectCollapse } from '~/components/subject-collapse'
 import { useSubjectModal } from '~/contexts/subject-modal'
 
 export function SubjectList() {
   const { openSubjectModal } = useSubjectModal()
-  const wishList = useAtomValue(wishListAtom)
+  const subjects = useAtomValue(subjectsAtom)
 
   return (
     <>
-      {wishList.length > 0 && (
+      {subjects.length > 0 && (
         <div className="mb-4 flex flex-col gap-4">
-          {wishList.map((subject) => (
+          {subjects.map((subject) => (
             <SubjectCollapse key={subject.index} subject={subject} />
           ))}
         </div>

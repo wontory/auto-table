@@ -6,7 +6,7 @@ import { createContext, useContext, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 
-import { createSubjectAtom, updateSubjectAtom, wishListAtom } from '~/atoms/wish-list'
+import { createSubjectAtom, subjectsAtom, updateSubjectAtom } from '~/atoms/subjects'
 import { type Subject, subjectSchema } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
@@ -15,7 +15,7 @@ export const SubjectModalContext = createContext({ openSubjectModal(subject?: Su
 export function SubjectModalProvider({ children }: { children: React.ReactNode }) {
   const modalRef = useRef<HTMLDialogElement>(null)
   const [mode, setMode] = useState<'추가' | '수정'>('추가')
-  const wishList = useAtomValue(wishListAtom)
+  const subjects = useAtomValue(subjectsAtom)
   const createSubject = useSetAtom(createSubjectAtom)
   const updateSubject = useSetAtom(updateSubjectAtom)
   const {
@@ -33,7 +33,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
       setMode('수정')
     } else {
       reset({
-        index: wishList.length > 0 ? wishList[wishList.length - 1].index + 1 : 0,
+        index: subjects.length > 0 ? subjects[subjects.length - 1].index + 1 : 0,
         title: '',
         credit: 2,
         lectures: [],

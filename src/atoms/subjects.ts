@@ -3,39 +3,39 @@ import { atom } from 'jotai'
 import type { Lecture } from '~/schemas/lecture'
 import type { Subject } from '~/schemas/subject'
 
-export const wishListAtom = atom<Subject[]>([])
+export const subjectsAtom = atom<Subject[]>([])
 
 // Subject
 export const createSubjectAtom = atom(null, (get, set, subject: Subject) => {
-  set(wishListAtom, [...get(wishListAtom), subject])
+  set(subjectsAtom, [...get(subjectsAtom), subject])
 })
 
 export const updateSubjectAtom = atom(null, (get, set, subject: Subject) => {
   set(
-    wishListAtom,
-    get(wishListAtom).map((s) => (s.index === subject.index ? subject : s)),
+    subjectsAtom,
+    get(subjectsAtom).map((s) => (s.index === subject.index ? subject : s)),
   )
 })
 
 export const deleteSubjectAtom = atom(null, (get, set, subject: Subject) => {
   set(
-    wishListAtom,
-    get(wishListAtom).filter((s) => s.index !== subject.index),
+    subjectsAtom,
+    get(subjectsAtom).filter((s) => s.index !== subject.index),
   )
 })
 
 // Lecture
 export const createLectureAtom = atom(null, (get, set, subject: Subject, lecture: Lecture) => {
   set(
-    wishListAtom,
-    get(wishListAtom).map((s) => (s.index === subject.index ? { ...s, lectures: [...s.lectures, lecture] } : s)),
+    subjectsAtom,
+    get(subjectsAtom).map((s) => (s.index === subject.index ? { ...s, lectures: [...s.lectures, lecture] } : s)),
   )
 })
 
 export const updateLectureAtom = atom(null, (get, set, subject: Subject, lecture: Lecture) => {
   set(
-    wishListAtom,
-    get(wishListAtom).map((s) =>
+    subjectsAtom,
+    get(subjectsAtom).map((s) =>
       s.index === subject.index
         ? { ...s, lectures: s.lectures.map((l) => (l.index === lecture.index ? lecture : l)) }
         : s,
@@ -45,8 +45,8 @@ export const updateLectureAtom = atom(null, (get, set, subject: Subject, lecture
 
 export const deleteLectureAtom = atom(null, (get, set, subject: Subject, lecture: Lecture) => {
   set(
-    wishListAtom,
-    get(wishListAtom).map((s) =>
+    subjectsAtom,
+    get(subjectsAtom).map((s) =>
       s.index === subject.index ? { ...s, lectures: s.lectures.filter((l) => l.index !== lecture.index) } : s,
     ),
   )
