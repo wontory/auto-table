@@ -1,6 +1,6 @@
 import { useSetAtom } from 'jotai'
 
-import { deleteLectureAtom } from '~/atoms/wish-list'
+import { deleteLectureAtom } from '~/atoms/subjects'
 import { ButtonControl } from '~/components/button-control'
 import { useLectureModal } from '~/contexts/lecture-modal'
 import type { Lecture } from '~/schemas/lecture'

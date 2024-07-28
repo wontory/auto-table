@@ -6,7 +6,7 @@ import { createContext, useContext, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 
-import { createLectureAtom, updateLectureAtom } from '~/atoms/wish-list'
+import { createLectureAtom, updateLectureAtom } from '~/atoms/subjects'
 import { type Lecture, lectureSchema } from '~/schemas/lecture'
 import type { Subject } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
