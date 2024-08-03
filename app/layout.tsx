@@ -33,7 +33,7 @@ export default function RootLayout({
           <SubjectModalProvider>
             <LectureModalProvider>
               <Header />
-              <main className="mx-auto w-full max-w-screen-lg flex-1 p-4">{children}</main>
+              <main className="mx-auto w-full max-w-screen-lg flex-1 p-4 pb-24">{children}</main>
               <Footer />
             </LectureModalProvider>
           </SubjectModalProvider>
