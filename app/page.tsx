@@ -33,15 +33,15 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className="flex flex-col gap-4">
       <SubjectList />
       {subjects.length ? (
-        <button type="button" className="btn btn-info mt-2 w-full" onClick={handleSubmit}>
+        <button type="button" className="btn btn-info btn-block" onClick={handleSubmit}>
           시간표 생성
         </button>
       ) : (
         <></>
       )}
-    </>
+    </div>
   )
 }

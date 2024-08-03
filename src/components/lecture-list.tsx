@@ -14,7 +14,7 @@ export function LectureList({ subject }: { subject: Subject }) {
           ))}
         </div>
       )}
-      <button type="button" className="btn btn-secondary w-full" onClick={() => openLectureModal(subject)}>
+      <button type="button" className="btn btn-secondary btn-block" onClick={() => openLectureModal(subject)}>
         강의 추가
       </button>
     </>

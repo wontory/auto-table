@@ -19,7 +19,7 @@ export function SubjectList() {
           ))}
         </div>
       )}
-      <button type="button" className="btn btn-primary w-full" onClick={() => openSubjectModal()}>
+      <button type="button" className="btn btn-primary btn-block" onClick={() => openSubjectModal()}>
         과목 추가
       </button>
     </>
