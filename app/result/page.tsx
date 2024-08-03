@@ -34,7 +34,9 @@ export default function Result() {
               <div key={`timetable-${timetable.index}`} className="card bg-base-200">
                 <div className="card-body">
                   <h2 className="card-title">시간표 {index + 1}</h2>
-                  <Table timetable={timetable} />
+                  <div className="aspect-square">
+                    <Table timetable={timetable} />
+                  </div>
                 </div>
               </div>
             ))}
