@@ -15,7 +15,7 @@ export function SubjectList() {
       {subjects.length > 0 && (
         <div className="mb-4 flex flex-col gap-4">
           {subjects.map((subject) => (
-            <SubjectCollapse key={subject.index} subject={subject} />
+            <SubjectCollapse key={`subject-${subject.index}`} subject={subject} />
           ))}
         </div>
       )}
