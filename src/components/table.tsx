@@ -5,7 +5,7 @@ import { cn } from '~/utils/cn'
 
 export function Table({ timetable }: { timetable: Timetable }) {
   return (
-    <table className="table-compact table table-fixed bg-base-100 text-center">
+    <table className="table-md table table-fixed bg-base-100 text-center">
       <thead>
         <tr>
           <th />
