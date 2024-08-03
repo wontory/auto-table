@@ -4,7 +4,7 @@ import { CheckIcon, PaletteIcon } from 'lucide-react'
 import { useEffect } from 'react'
 import { themeChange } from 'theme-change'
 
-import { themes } from '~/constants/theme'
+import { themes } from '~/constants/themes'
 
 export function ToggleTheme() {
   useEffect(() => {
@@ -20,7 +20,7 @@ export function ToggleTheme() {
         <div className="grid grid-cols-1 gap-3 p-3">
           {themes.map((theme) => (
             <button
-              key={theme}
+              key={`theme-${theme}`}
               type="button"
               className="text-start outline-base-content outline-offset-4"
               data-set-theme={theme}
