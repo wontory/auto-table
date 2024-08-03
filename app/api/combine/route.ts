@@ -19,7 +19,7 @@ export async function POST(request: Request) {
         }
       }
 
-      return timetables.push({ index: timetables.length, timetable: table })
+      return timetables.push({ index: timetables.length, score: 0, timetable: table })
     }
 
     for (const lecture of subjects[depth].lectures) {
