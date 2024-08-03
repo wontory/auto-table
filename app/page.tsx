@@ -21,7 +21,13 @@ export default function Home() {
       body: JSON.stringify(subjects),
     }).then((res) => res.json())) as Timetable[]
 
-    setTimetables(timetables)
+    const evaluatedTimetables = (await fetch('/api/evaluate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(timetables),
+    }).then((res) => res.json())) as Timetable[]
+
+    setTimetables(evaluatedTimetables)
 
     router.push('/result')
   }
