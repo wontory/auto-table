@@ -5,7 +5,7 @@ import { cn } from '~/utils/cn'
 
 export function Table({ timetable }: { timetable: Timetable }) {
   return (
-    <table className="table-md table table-fixed bg-base-100 text-center">
+    <table className="table-md table aspect-square table-fixed bg-base-100 text-center">
       <thead>
         <tr>
           <th />
@@ -19,18 +19,19 @@ export function Table({ timetable }: { timetable: Timetable }) {
           <tr key={`tr-${timetable.index}-${i}`}>
             <th>{i + 1}</th>
             {row.map((subject, j) =>
-              subject !== null &&
-              (i > 0 ? JSON.stringify(timetable.timetable[i - 1][j]) !== JSON.stringify(subject) : true) ? (
-                <td
-                  key={`td-${timetable.index}-${i}-${j}`}
-                  rowSpan={subject.credit}
-                  className={cn(
-                    backgroundColors[Math.floor(Math.random() * backgroundColors.length)],
-                    'text-white text-xs',
-                  )}
-                >
-                  {subject.title}
-                </td>
+              subject !== null ? (
+                (i > 0 ? JSON.stringify(timetable.timetable[i - 1][j]) !== JSON.stringify(subject) : true) && (
+                  <td
+                    key={`td-${timetable.index}-${i}-${j}`}
+                    rowSpan={subject.credit}
+                    className={cn(
+                      backgroundColors[Math.floor(Math.random() * backgroundColors.length)],
+                      'text-white text-xs',
+                    )}
+                  >
+                    {subject.title}
+                  </td>
+                )
               ) : (
                 <td key={`td-${timetable.index}-${i}-${j}`} />
               ),
