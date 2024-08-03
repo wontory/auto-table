@@ -5,6 +5,7 @@ const config: Config = {
   content: [
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/contexts/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/constants/background-colors.ts',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
