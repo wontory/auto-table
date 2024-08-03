@@ -26,7 +26,7 @@ export function Table({ timetable }: { timetable: Timetable }) {
                     rowSpan={subject.credit}
                     className={cn(
                       backgroundColors[Math.floor(Math.random() * backgroundColors.length)],
-                      'text-white text-xs',
+                      'p-1 text-white text-xs',
                     )}
                   >
                     {subject.title}
