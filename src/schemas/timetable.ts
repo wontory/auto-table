@@ -7,5 +7,6 @@ export type Timetable = {
   index: number
   score: number
   tags: Tag[]
+  combination: z.infer<typeof subjectSchema>[]
   timetable: (z.infer<typeof subjectSchema> | null)[][]
 }

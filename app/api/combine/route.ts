@@ -23,6 +23,7 @@ export async function POST(request: Request) {
         index: timetables.length,
         score: 0,
         tags: [],
+        combination: [...combination],
         timetable: table,
       })
     }
