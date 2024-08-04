@@ -26,7 +26,9 @@ export function TimetableModalProvider({ children }: { children: React.ReactNode
         <div className="modal-box">
           {timetable && (
             <div className="flex flex-col gap-4 overflow-scroll bg-base-100" ref={tableRef}>
-              <Table timetable={timetable} />
+              <div className="aspect-square w-full">
+                <Table timetable={timetable} />
+              </div>
               <TableDetails combination={timetable.combination} />
             </div>
           )}
