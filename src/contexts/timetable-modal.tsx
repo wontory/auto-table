@@ -1,6 +1,8 @@
 'use client'
 
+import { toPng } from 'html-to-image'
 import { createContext, useContext, useRef, useState } from 'react'
+
 import { Table } from '~/components/table'
 import { TableDetails } from '~/components/table-details'
 import type { Timetable } from '~/schemas/timetable'
@@ -9,6 +11,7 @@ export const TimetableModalContext = createContext({ openTimetableModal(timetabl
 
 export function TimetableModalProvider({ children }: { children: React.ReactNode }) {
   const modalRef = useRef<HTMLDialogElement>(null)
+  const tableRef = useRef<HTMLDivElement>(null)
   const [timetable, setTimetable] = useState<Timetable | null>(null)
 
   const openTimetableModal = (timetable: Timetable) => {
@@ -22,12 +25,26 @@ export function TimetableModalProvider({ children }: { children: React.ReactNode
       <dialog className="modal" ref={modalRef}>
         <div className="modal-box">
           {timetable && (
-            <div className="flex flex-col gap-4 overflow-scroll">
+            <div className="flex flex-col gap-4 overflow-scroll bg-base-100" ref={tableRef}>
               <Table timetable={timetable} />
               <TableDetails combination={timetable.combination} />
             </div>
           )}
           <div className="modal-action">
+            <button
+              type="button"
+              className="btn"
+              onClick={() => {
+                toPng(tableRef.current as HTMLElement).then((image) => {
+                  const a = document.createElement('a')
+                  a.href = image
+                  a.download = '시간표.png'
+                  a.click()
+                })
+              }}
+            >
+              이미지로 저장
+            </button>
             <button type="button" className="btn" onClick={() => modalRef.current?.close()}>
               닫기
             </button>

@@ -4,7 +4,7 @@ export function TableDetails({ combination }: { combination: Timetable['combinat
   console.log(combination)
 
   return (
-    <table className="table-zebra table bg-base-100 text-center">
+    <table className="table bg-base-100 text-center">
       <thead>
         <tr>
           <th />
