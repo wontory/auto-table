@@ -1,16 +1,18 @@
 'use client'
 
 import { useAtomValue } from 'jotai'
-import { Undo2Icon } from 'lucide-react'
+import { Undo2Icon, ZoomInIcon } from 'lucide-react'
 import { useRouter } from 'next/navigation'
 
 import { timetablesAtom } from '~/atoms/timetables'
 import { Table } from '~/components/table'
 import { badges } from '~/constants/badges'
+import { useTimetableModal } from '~/contexts/timetable-modal'
 import { cn } from '~/utils/cn'
 
 export default function Result() {
   const router = useRouter()
+  const { openTimetableModal } = useTimetableModal()
 
   const timetables = useAtomValue(timetablesAtom)
 
@@ -44,6 +46,13 @@ export default function Result() {
                         </div>
                       ))}
                     </div>
+                    <button
+                      type="button"
+                      className="btn btn-ghost btn-sm btn-square ml-auto"
+                      onClick={() => openTimetableModal(timetable)}
+                    >
+                      <ZoomInIcon className="h-4 w-4" />
+                    </button>
                   </div>
                   <div className="aspect-square w-full">
                     <Table timetable={timetable} />
