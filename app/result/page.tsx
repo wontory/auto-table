@@ -6,6 +6,8 @@ import { useRouter } from 'next/navigation'
 
 import { timetablesAtom } from '~/atoms/timetables'
 import { Table } from '~/components/table'
+import { badges } from '~/constants/badges'
+import { cn } from '~/utils/cn'
 
 export default function Result() {
   const router = useRouter()
@@ -33,7 +35,16 @@ export default function Result() {
             .map((timetable, index) => (
               <div key={`timetable-${timetable.index}`} className="card bg-base-200">
                 <div className="card-body">
-                  <h2 className="card-title">시간표 {index + 1}</h2>
+                  <div className="flex items-center gap-4">
+                    <h2 className="card-title">시간표 {index + 1}</h2>
+                    <div className="flex gap-2">
+                      {timetable.tags.map((tag) => (
+                        <div key={`tag-${index}-${tag}`} className={cn('badge badge-lg', badges[tag])}>
+                          {tag}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                   <div className="aspect-square w-full">
                     <Table timetable={timetable} />
                   </div>
