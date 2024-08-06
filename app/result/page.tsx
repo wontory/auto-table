@@ -1,8 +1,7 @@
 'use client'
 
 import { useAtomValue } from 'jotai'
-import { Undo2Icon, ZoomInIcon } from 'lucide-react'
-import { useRouter } from 'next/navigation'
+import { CircleXIcon, ZoomInIcon } from 'lucide-react'
 
 import { timetablesAtom } from '~/atoms/timetables'
 import { Table } from '~/components/table'
@@ -11,25 +10,12 @@ import { useTimetableModal } from '~/contexts/timetable-modal'
 import { cn } from '~/utils/cn'
 
 export default function Result() {
-  const router = useRouter()
   const { openTimetableModal } = useTimetableModal()
 
   const timetables = useAtomValue(timetablesAtom)
 
   return (
     <div className="flex flex-col gap-4">
-      <div>
-        <button
-          type="button"
-          className="btn"
-          onClick={() => {
-            router.back()
-          }}
-        >
-          <Undo2Icon className="h-6 w-6" />
-          뒤로가기
-        </button>
-      </div>
       {timetables.length ? (
         <div className="grid gap-4 lg:grid-cols-2">
           {timetables
@@ -62,7 +48,10 @@ export default function Result() {
             ))}
         </div>
       ) : (
-        <>생성된 시간표가 없어요.</>
+        <div role="alert" className="alert alert-error">
+          <CircleXIcon className="h-6 w-6 shrink-0 stroke-current" />
+          <span>가능한 조합이 없어요. 강의 정보를 수정해주세요.</span>
+        </div>
       )}
     </div>
   )
