@@ -4,10 +4,8 @@ import '~/styles/globals.css'
 
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
-import { JotaiProvider } from '~/components/jotai-provider'
-import { LectureModalProvider } from '~/contexts/lecture-modal'
-import { SubjectModalProvider } from '~/contexts/subject-modal'
 import { cn } from '~/utils/cn'
+import { Providers } from './providers'
 
 const pretendard = localFont({
   src: '../public/fonts/PretendardVariable.woff2',
@@ -29,15 +27,11 @@ export default function RootLayout({
   return (
     <html lang="ko" className={cn(pretendard.variable, 'font-pretendard')}>
       <body className="relative flex min-h-dvh flex-col">
-        <JotaiProvider>
-          <SubjectModalProvider>
-            <LectureModalProvider>
-              <Header />
-              <main className="mx-auto w-full max-w-screen-lg flex-1 p-4 pb-24">{children}</main>
-              <Footer />
-            </LectureModalProvider>
-          </SubjectModalProvider>
-        </JotaiProvider>
+        <Providers>
+          <Header />
+          <main className="mx-auto w-full max-w-screen-lg flex-1 p-4 pb-24">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
