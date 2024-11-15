@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import '~/styles/globals.css'
@@ -32,6 +33,7 @@ export default function RootLayout({
           <main className="mx-auto w-full max-w-screen-lg flex-1 p-4 pb-24">{children}</main>
           <Footer />
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
