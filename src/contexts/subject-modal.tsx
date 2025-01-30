@@ -35,7 +35,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
       reset({
         index: subjects.length > 0 ? subjects[subjects.length - 1].index + 1 : 0,
         title: '',
-        credit: 2,
+        credit: 3,
         lectures: [],
       })
       setMode('추가')
@@ -83,7 +83,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
                 id="credit"
                 type="range"
                 min={1}
-                max={3}
+                max={6}
                 step={1}
                 className="range range-primary"
                 {...register('credit', { valueAsNumber: true })}
@@ -92,6 +92,9 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
                 <span>1</span>
                 <span>2</span>
                 <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <span>6</span>
               </div>
             </div>
           </div>
