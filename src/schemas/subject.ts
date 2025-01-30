@@ -7,7 +7,7 @@ export const subjectSchema = z.object({
   title: z.string().min(1, {
     message: '과목명을 입력해주세요.',
   }),
-  credit: z.number().min(1).max(3),
+  credit: z.number().min(1).max(6),
   lectures: z.array(lectureSchema),
 })
 
