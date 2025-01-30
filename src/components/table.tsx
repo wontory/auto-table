@@ -1,5 +1,6 @@
 import { backgroundColors } from '~/constants/background-colors'
 import { days } from '~/constants/days'
+import { textColors } from '~/constants/text-colors'
 import type { Timetable } from '~/schemas/timetable'
 import { cn } from '~/utils/cn'
 
@@ -25,8 +26,9 @@ export function Table({ timetable }: { timetable: Timetable }) {
                     key={`td-${timetable.index}-${i}-${j}`}
                     rowSpan={subject.credit}
                     className={cn(
-                      backgroundColors[Math.floor(Math.random() * backgroundColors.length)],
-                      'p-1 text-white text-xs',
+                      backgroundColors.find((color) => color.includes(subject.color)),
+                      textColors.find((color) => color.includes(subject.color)),
+                      'p-1 text-xs',
                     )}
                   >
                     {subject.title}

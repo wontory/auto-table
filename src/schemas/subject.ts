@@ -8,6 +8,7 @@ export const subjectSchema = z.object({
     message: '과목명을 입력해주세요.',
   }),
   credit: z.number().min(1).max(6),
+  color: z.string(),
   lectures: z.array(lectureSchema),
 })
 

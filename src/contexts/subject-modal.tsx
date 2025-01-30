@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 
 import { createSubjectAtom, subjectsAtom, updateSubjectAtom } from '~/atoms/subjects'
+import { selectColors } from '~/constants/select-colors'
 import { type Subject, subjectSchema } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
 
@@ -22,6 +23,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
     register,
     reset,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<z.infer<typeof subjectSchema>>({
     resolver: zodResolver(subjectSchema),
@@ -36,6 +38,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
         index: subjects.length > 0 ? subjects[subjects.length - 1].index + 1 : 0,
         title: '',
         credit: 3,
+        color: 'primary',
         lectures: [],
       })
       setMode('추가')
@@ -97,6 +100,27 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
                 <span>6</span>
               </div>
             </div>
+          </div>
+          <div className="form-control w-full">
+            <label htmlFor="credit" className="label label-text">
+              색
+            </label>
+            <select
+              className={cn(
+                selectColors.find((color) => color.includes(watch('color'))),
+                'select w-full',
+              )}
+              {...register('color')}
+            >
+              <option value="primary">Primary</option>
+              <option value="secondary">Secondary</option>
+              <option value="accent">Accent</option>
+              <option value="neutral">Neutral</option>
+              <option value="info">Info</option>
+              <option value="success">Success</option>
+              <option value="warning">Warning</option>
+              <option value="error">Error</option>
+            </select>
           </div>
           <div className="modal-action">
             <button type="button" className="btn" onClick={() => modalRef.current?.close()}>
