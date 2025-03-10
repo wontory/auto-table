@@ -81,6 +81,72 @@ bun dev
 
 &nbsp;
 
+## API
+
+### POST /api/combine
+
+시간표 조합을 생성하는 API입니다.
+
+#### 요청
+
+```typescript
+type Subject = {
+  id: string;
+  title: string;
+  professor: string;
+  credit: number;
+  lectures: {
+    id: string;
+    day: number;
+    startTime: number;
+    endTime: number;
+  }[];
+}
+
+// Request Body: Subject[]
+```
+
+#### 응답
+
+```typescript
+type Timetable = {
+  id: string;
+  subjects: Subject[];
+}
+
+// Response Body: Timetable[]
+```
+
+&nbsp;
+
+### POST /api/evaluate
+
+생성된 시간표를 평가하는 API입니다.
+
+#### 요청
+
+```typescript
+type Timetable = {
+  id: string;
+  subjects: Subject[];
+}
+
+// Request Body: Timetable[]
+```
+
+#### 응답
+
+```typescript
+type EvaluatedTimetable = Timetable & {
+  score: number;
+  // 공강 시간, 아침/저녁 시간대 등을 고려한 점수
+}
+
+// Response Body: EvaluatedTimetable[]
+```
+
+&nbsp;
+
 ## 스크립트
 
 - `bun dev`: 개발 서버 실행
