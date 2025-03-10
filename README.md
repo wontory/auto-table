@@ -24,12 +24,14 @@
 ## 사용 방법
 
 1. 과목 추가하기
+
    - "과목 추가" 버튼을 클릭하여 새로운 과목 추가
    - 과목명, 교수명, 학점 정보 입력
    - "강의 추가" 버튼으로 해당 과목의 강의 시간 및 강의실 정보 입력
    - 여러 분반이 있는 경우 추가 강의 정보 입력
 
 2. 시간표 생성하기
+
    - 모든 과목 정보를 입력한 후 "시간표 생성" 버튼 클릭
    - 시스템이 자동으로 가능한 모든 조합을 계산하고 최적화
 
@@ -91,17 +93,17 @@ bun dev
 
 ```typescript
 type Subject = {
-  id: string;
+  index: number;
   title: string;
-  professor: string;
   credit: number;
+  color: string;
   lectures: {
-    id: string;
-    day: number;
-    startTime: number;
-    endTime: number;
+    index: number;
+    professor: string;
+    day: "월" | "화" | "수" | "목" | "금";
+    time: string; // 연속된 숫자, Subject의 credit과 길이가 같아야 합니다.
   }[];
-}
+};
 
 // Request Body: Subject[]
 ```
@@ -110,9 +112,10 @@ type Subject = {
 
 ```typescript
 type Timetable = {
-  id: string;
-  subjects: Subject[];
-}
+  index: number;
+  combination: Subject[];
+  timetable: (Subject | null)[][];
+};
 
 // Response Body: Timetable[]
 ```
@@ -127,9 +130,10 @@ type Timetable = {
 
 ```typescript
 type Timetable = {
-  id: string;
-  subjects: Subject[];
-}
+  index: number;
+  combination: Subject[];
+  timetable: (Subject | null)[][];
+};
 
 // Request Body: Timetable[]
 ```
@@ -138,9 +142,9 @@ type Timetable = {
 
 ```typescript
 type EvaluatedTimetable = Timetable & {
-  score: number;
-  // 공강 시간, 아침/저녁 시간대 등을 고려한 점수
-}
+  score: number; // 공강 시간, 아침/저녁 시간대 등을 고려한 점수
+  tags: "공강" | "오후";
+};
 
 // Response Body: EvaluatedTimetable[]
 ```
