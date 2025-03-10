@@ -69,21 +69,21 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
         <form className="modal-box" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">강의 {mode}</h3>
           <div className="py-4">
-            <div className={cn('form-control mb-4 w-full', errors.professor && '*:input-error *:text-error')}>
-              <label htmlFor="professor" className="label label-text">
+            <div className={cn('fieldset mb-4 w-full', errors.professor && '*:input-error *:text-error')}>
+              <label htmlFor="professor" className="label">
                 담당교수
               </label>
               <input
                 id="professor"
                 type="text"
                 placeholder="이은정"
-                className="input input-bordered w-full"
+                className="input w-full"
                 {...register('professor')}
               />
-              {errors.professor && <span className="label label-text-alt">{errors.professor.message}</span>}
+              {errors.professor && <span className="label">{errors.professor.message}</span>}
             </div>
-            <div className={cn('form-control mb-4 w-full', errors.day && '*:input-error *:text-error')}>
-              <label htmlFor="day" className="label label-text">
+            <div className={cn('fieldset mb-4 w-full', errors.day && '*:input-error *:text-error')}>
+              <label htmlFor="day" className="label">
                 요일
               </label>
               <div id="day" className="join">
@@ -93,10 +93,10 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
                 <input className="join-item btn w-1/5" type="radio" value="목" aria-label="목" {...register('day')} />
                 <input className="join-item btn w-1/5" type="radio" value="금" aria-label="금" {...register('day')} />
               </div>
-              {errors.day && <span className="label label-text-alt">{errors.day.message}</span>}
+              {errors.day && <span className="label">{errors.day.message}</span>}
             </div>
-            <div className={cn('form-control w-full', errors.time && '*:input-error *:text-error')}>
-              <label htmlFor="time" className="label label-text">
+            <div className={cn('fieldset w-full', errors.time && '*:input-error *:text-error')}>
+              <label htmlFor="time" className="label">
                 교시
               </label>
               <input
@@ -104,10 +104,10 @@ export function LectureModalProvider({ children }: { children: React.ReactNode }
                 type="text"
                 placeholder={'123'.slice(0, subject?.credit ?? 0)}
                 maxLength={subject?.credit ?? 0}
-                className="input input-bordered w-full"
+                className="input w-full"
                 {...register('time')}
               />
-              {errors.time && <span className="label label-text-alt">{errors.time.message}</span>}
+              {errors.time && <span className="label">{errors.time.message}</span>}
             </div>
           </div>
           <div className="modal-action">

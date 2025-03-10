@@ -28,12 +28,12 @@ export function ToggleTheme() {
             >
               <span
                 data-theme={theme}
-                className="block w-full cursor-pointer rounded-btn bg-base-100 font-sans text-base-content"
+                className="btn block w-full cursor-pointer bg-base-100 font-sans text-base-content"
               >
                 <span className="grid grid-cols-5 grid-rows-3">
                   <span className="col-span-5 row-span-3 row-start-1 flex items-center gap-2 px-4 py-3">
                     <CheckIcon className="invisible h-5 w-5 shrink-0" />
-                    <span className="flex-grow text-sm">{theme}</span>
+                    <span className="grow text-sm">{theme}</span>
                     <span className="flex h-full shrink-0 flex-wrap gap-1">
                       <span className="w-2 rounded-badge bg-primary" />
                       <span className="w-2 rounded-badge bg-secondary" />

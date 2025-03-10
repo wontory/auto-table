@@ -66,21 +66,21 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
         <form className="modal-box" onSubmit={handleSubmit(onSubmit)}>
           <h3 className="font-bold text-lg">과목 {mode}</h3>
           <div className="flex flex-col gap-4 py-4">
-            <div className={cn('form-control w-full', errors.title && '*:input-error *:text-error')}>
-              <label htmlFor="title" className="label label-text">
+            <div className={cn('fieldset w-full', errors.title && '*:input-error *:text-error')}>
+              <label htmlFor="title" className="label">
                 과목명
               </label>
               <input
                 id="title"
                 type="text"
                 placeholder="차세대프로그래밍언어"
-                className="input input-bordered w-full"
+                className="input w-full"
                 {...register('title')}
               />
-              {errors.title && <span className="label label-text-alt">{errors.title.message}</span>}
+              {errors.title && <span className="label">{errors.title.message}</span>}
             </div>
-            <div className="form-control w-full">
-              <label htmlFor="credit" className="label label-text">
+            <div className="fieldset w-full">
+              <label htmlFor="credit" className="label">
                 학점
               </label>
               <input
@@ -89,7 +89,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
                 min={1}
                 max={6}
                 step={1}
-                className="range range-primary"
+                className="range range-primary w-full"
                 {...register('credit', { valueAsNumber: true })}
               />
               <div className="mt-2 flex w-full justify-between px-2 text-xs">
@@ -102,8 +102,8 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
               </div>
             </div>
           </div>
-          <div className="form-control w-full">
-            <label htmlFor="credit" className="label label-text">
+          <div className="fieldset w-full">
+            <label htmlFor="credit" className="label">
               색
             </label>
             <select

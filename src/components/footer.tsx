@@ -3,7 +3,7 @@ import Link from 'next/link'
 export function Footer() {
   return (
     <footer className="bg-neutral text-neutral-content">
-      <div className="footer max-md:footer-center mx-auto max-w-screen-lg items-center p-4">
+      <div className="footer md:footer-horizontal max-md:footer-center mx-auto max-w-(--breakpoint-lg) items-center p-4">
         <aside className="grid-flow-row items-center md:grid-flow-col">
           <p>
             Built by{' '}

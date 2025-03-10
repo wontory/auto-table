@@ -12,7 +12,7 @@ export function Header() {
 
   return (
     <div className="bg-base-100">
-      <div className="navbar mx-auto max-w-screen-lg">
+      <div className="navbar mx-auto max-w-(--breakpoint-lg)">
         <div className="navbar-start">
           {pathname !== '/' && (
             <button
