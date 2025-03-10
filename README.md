@@ -2,6 +2,8 @@
 
 자동으로 시간표를 생성해주는 웹 애플리케이션입니다.
 
+&nbsp;
+
 ## 주요 기능
 
 - 수강할 과목 정보 입력
@@ -16,6 +18,8 @@
   - 아침/저녁 시간대 선호도 반영
 - 생성된 시간표 이미지로 저장
   - PNG 이미지 포맷으로 저장
+
+&nbsp;
 
 ## 사용 방법
 
@@ -34,6 +38,8 @@
    - 마음에 드는 시간표 선택
    - "이미지로 저장" 버튼을 통해 시간표 저장
 
+&nbsp;
+
 ## 기술 스택
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org/)
@@ -50,11 +56,15 @@
 [![Husky](https://img.shields.io/badge/Husky-9.1-yellow?logo=git)](https://typicode.github.io/husky/)
 [![Commitlint](https://img.shields.io/badge/Commitlint-19.8-red?logo=commitlint)](https://commitlint.js.org/)
 
+&nbsp;
+
 ## 시작하기
 
 ### 필수 조건
 
 - [Bun](https://bun.sh) 1.1.20 이상
+
+&nbsp;
 
 ### 설치
 
@@ -70,6 +80,8 @@ bun dev
 ```
 
 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 접속하여 확인할 수 있습니다.
+
+&nbsp;
 
 ## 스크립트
 
