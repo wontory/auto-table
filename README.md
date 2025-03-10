@@ -143,7 +143,7 @@ type Timetable = {
 ```typescript
 type EvaluatedTimetable = Timetable & {
   score: number; // 공강 시간, 아침/저녁 시간대 등을 고려한 점수
-  tags: "공강" | "오후";
+  tags: ("공강" | "오후")[];
 };
 
 // Response Body: EvaluatedTimetable[]
