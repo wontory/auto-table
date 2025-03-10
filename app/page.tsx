@@ -41,13 +41,15 @@ export default function Home() {
       <SubjectList />
       {subjects.length ? (
         <div className={cn(isInvalid() && 'tooltip tooltip-bottom tooltip-info')}>
-          <div className="tooltip-content">
-            강의 정보를 입력하지 않은 과목이 있어요!
-            <br />
-            <strong className="text-info-content italic">
-              {invalidSubjects.map((subject) => subject.title).join(', ')}
-            </strong>
-          </div>
+          {isInvalid() && (
+            <div className="tooltip-content">
+              강의 정보를 입력하지 않은 과목이 있어요!
+              <br />
+              <strong className="text-info-content italic">
+                {invalidSubjects.map((subject) => subject.title).join(', ')}
+              </strong>
+            </div>
+          )}
           <button type="button" className="btn btn-info btn-block" onClick={handleSubmit} disabled={isInvalid()}>
             시간표 생성
           </button>
