@@ -13,9 +13,9 @@ export function ToggleTheme() {
 
   return (
     <div title="Change Theme" className="dropdown dropdown-end block">
-      <div tabIndex={0} role="button" className="btn btn-square btn-ghost">
+      <button type="button" className="btn btn-square btn-ghost">
         <PaletteIcon className="h-5 w-5 stroke-current" />
-      </div>
+      </button>
       <div className="dropdown-content top-px mt-12 h-[30.5rem] max-h-[calc(100vh-8.6rem)] overflow-y-auto rounded-box border border-white/5 bg-base-200 text-base-content shadow-2xl outline-1 outline-black/5">
         <ul className="menu w-56">
           {themes.map((theme) => (
