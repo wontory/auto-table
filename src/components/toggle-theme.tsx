@@ -12,40 +12,30 @@ export function ToggleTheme() {
   }, [])
 
   return (
-    <div title="Change Theme" className="dropdown dropdown-end z-50 hidden [@supports(color:oklch(0%_0_0))]:block">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-square">
+    <div title="Change Theme" className="dropdown dropdown-end block">
+      <div tabIndex={0} role="button" className="btn btn-square btn-ghost">
         <PaletteIcon className="h-5 w-5 stroke-current" />
       </div>
-      <div className="dropdown-content top-px mt-14 h-[28.6rem] max-h-[calc(100vh-10rem)] w-56 overflow-y-auto rounded-box border border-white/5 bg-base-200 text-base-content shadow-2xl outline outline-1 outline-black/5">
-        <div className="grid grid-cols-1 gap-3 p-3">
+      <div className="dropdown-content top-px mt-12 h-[30.5rem] max-h-[calc(100vh-8.6rem)] overflow-y-auto rounded-box border border-white/5 bg-base-200 text-base-content shadow-2xl outline-1 outline-black/5">
+        <ul className="menu w-56">
           {themes.map((theme) => (
-            <button
-              key={`theme-${theme}`}
-              type="button"
-              className="text-start outline-base-content outline-offset-4"
-              data-set-theme={theme}
-              data-act-class="[&_svg]:visible"
-            >
-              <span
-                data-theme={theme}
-                className="btn block w-full cursor-pointer bg-base-100 font-sans text-base-content"
-              >
-                <span className="grid grid-cols-5 grid-rows-3">
-                  <span className="col-span-5 row-span-3 row-start-1 flex items-center gap-2 px-4 py-3">
-                    <CheckIcon className="invisible h-5 w-5 shrink-0" />
-                    <span className="grow text-sm">{theme}</span>
-                    <span className="flex h-full shrink-0 flex-wrap gap-1">
-                      <span className="w-2 rounded-badge bg-primary" />
-                      <span className="w-2 rounded-badge bg-secondary" />
-                      <span className="w-2 rounded-badge bg-accent" />
-                      <span className="w-2 rounded-badge bg-neutral" />
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </button>
+            <li key={theme}>
+              <button type="button" className="gap-3 px-2" data-set-theme={theme} data-act-class="[&_svg]:visible">
+                <div
+                  data-theme={theme}
+                  className="grid shrink-0 grid-cols-2 gap-0.5 rounded-md bg-base-100 p-1 shadow-sm"
+                >
+                  <div className="size-1 rounded-full bg-base-content" />
+                  <div className="size-1 rounded-full bg-primary" />
+                  <div className="size-1 rounded-full bg-secondary" />
+                  <div className="size-1 rounded-full bg-accent" />
+                </div>
+                <div className="w-32 truncate capitalize">{theme}</div>
+                <CheckIcon className="invisible h-5 w-5 shrink-0" />
+              </button>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   )
