@@ -64,8 +64,6 @@
 
 - [Bun](https://bun.sh) 1.1.20 이상
 
-&nbsp;
-
 ### 설치
 
 ```bash
@@ -91,6 +89,8 @@ bun dev
 - `bun check`: 코드 검사
 - `bun format`: 코드 포맷팅
 - `bun lint`: 린트 검사 및 수정
+
+&nbsp;
 
 ## 라이선스
 
