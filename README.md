@@ -86,9 +86,9 @@ bun dev
 - `bun dev`: 개발 서버 실행
 - `bun build`: 프로덕션용 빌드
 - `bun start`: 프로덕션 서버 실행
-- `bun check`: 코드 검사
+- `bun check`: 코드 검사 및 포매팅
 - `bun format`: 코드 포맷팅
-- `bun lint`: 린트 검사 및 수정
+- `bun lint`: 린트 검사
 
 &nbsp;
 
