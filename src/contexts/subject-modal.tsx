@@ -7,8 +7,9 @@ import { useForm } from 'react-hook-form'
 import type { z } from 'zod'
 
 import { createSubjectAtom, subjectsAtom, updateSubjectAtom } from '~/atoms/subjects'
-import { selectColors } from '~/constants/select-colors'
+import { selectColorMap, selectColors } from '~/constants/select-colors'
 import { type Subject, subjectSchema } from '~/schemas/subject'
+import { capitalize } from '~/utils/capitalize'
 import { cn } from '~/utils/cn'
 
 export const SubjectModalContext = createContext({ openSubjectModal(subject?: Subject) {} })
@@ -38,7 +39,7 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
         index: subjects.length > 0 ? subjects[subjects.length - 1].index + 1 : 0,
         title: '',
         credit: 3,
-        color: 'primary',
+        color: selectColorMap[Math.floor(Math.random() * selectColorMap.length)],
         lectures: [],
       })
       setMode('추가')
@@ -112,14 +113,11 @@ export function SubjectModalProvider({ children }: { children: React.ReactNode }
               )}
               {...register('color')}
             >
-              <option value="primary">Primary</option>
-              <option value="secondary">Secondary</option>
-              <option value="accent">Accent</option>
-              <option value="neutral">Neutral</option>
-              <option value="info">Info</option>
-              <option value="success">Success</option>
-              <option value="warning">Warning</option>
-              <option value="error">Error</option>
+              {selectColorMap.map((color) => (
+                <option key={color} value={color}>
+                  {capitalize(color)}
+                </option>
+              ))}
             </select>
           </div>
           <div className="modal-action">

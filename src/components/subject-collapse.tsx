@@ -4,7 +4,6 @@ import { deleteSubjectAtom } from '~/atoms/subjects'
 import { ButtonControl } from '~/components/button-control'
 import { LectureList } from '~/components/lecture-list'
 import { badgeColors } from '~/constants/badge-colors'
-import { textColors } from '~/constants/text-colors'
 import { useSubjectModal } from '~/contexts/subject-modal'
 import type { Subject } from '~/schemas/subject'
 import { cn } from '~/utils/cn'
@@ -21,8 +20,7 @@ export function SubjectCollapse({ subject }: { subject: Subject }) {
             <div
               className={cn(
                 badgeColors.find((color) => color.includes(subject.color)),
-                textColors.find((color) => color.includes(subject.color)),
-                'badge badge-lg aspect-square',
+                'badge badge-lg aspect-square text-black',
               )}
             >
               {subject.credit}
