@@ -15,7 +15,7 @@ export default function Home() {
   const subjects = useAtomValue(subjectsAtom)
   const setTimetables = useSetAtom(timetablesAtom)
 
-  const isInvalid = () => subjects.some((subject) => subject.lectures.length === 0)
+  const isInvalid = subjects.some((subject) => subject.lectures.length === 0)
   const invalidSubjects = subjects.filter((subject) => subject.lectures.length === 0)
 
   const handleSubmit = async () => {
@@ -40,8 +40,8 @@ export default function Home() {
     <div className="flex flex-col gap-4">
       <SubjectList />
       {subjects.length ? (
-        <div className={cn(isInvalid() && 'tooltip tooltip-bottom tooltip-info')}>
-          {isInvalid() && (
+        <div className={cn(isInvalid && 'tooltip tooltip-bottom tooltip-info')}>
+          {isInvalid && (
             <div className="tooltip-content">
               강의 정보를 입력하지 않은 과목이 있어요!
               <br />
