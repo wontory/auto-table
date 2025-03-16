@@ -50,7 +50,7 @@ export default function Home() {
               </strong>
             </div>
           )}
-          <button type="button" className="btn btn-info btn-block" onClick={handleSubmit} disabled={isInvalid()}>
+          <button type="button" className="btn btn-info btn-block" onClick={handleSubmit} disabled={isInvalid}>
             시간표 생성
           </button>
         </div>
